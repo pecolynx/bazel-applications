@@ -17,3 +17,7 @@ tasks:
   run-hello-world:
     cmds:
       - bazelisk run //hello-world:hello-world
+
+  run-third-party-library:
+    cmds:
+      - bazelisk run //third-party-library:third-party-library
