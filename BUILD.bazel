@@ -1,6 +1,9 @@
 load("@gazelle//:def.bzl", "gazelle")
 
 # gazelle:prefix github.com/pecolynx/bazel-applications
+# gazelle:proto file
+# gazelle:go_grpc_compilers @rules_go//proto:go_grpc
+# gazelle:go_proto_compilers @rules_go//proto:go_proto
 
 gazelle(name = "gazelle")
 
