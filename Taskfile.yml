@@ -9,6 +9,12 @@ tasks:
   gazelle:
     cmds:
       - bazelisk run //:gazelle 
+  
+  # bazel run @rules_go//go -- get ${MODULE}
+
+  mod-tidy:
+    cmds:
+      - bazelisk run @rules_go//go -- mod tidy
 
   update-repos:
     cmds:
@@ -21,6 +27,21 @@ tasks:
   run-third-party-library:
     cmds:
       - bazelisk run //third-party-library:third-party-library
+
+  run-rabbitmq-hello-world-send:
+    cmds:
+      - bazelisk run //rabbitmq-hello-world-send:rabbitmq-hello-world-send
+  run-rabbitmq-hello-world-receive:
+    cmds:
+      - bazelisk run //rabbitmq-hello-world-receive:rabbitmq-hello-world-receive
+
+  run-rabbitmq-worker-queues-worker:
+    cmds:
+      - bazelisk run //rabbitmq-worker-queues-worker:rabbitmq-worker-queues-worker
+
+  run-rabbitmq-worker-queues-new-task:
+    cmds:
+      - bazelisk run //rabbitmq-worker-queues-new-task:rabbitmq-worker-queues-new-task
 
   run-grpc-server:
     cmds:

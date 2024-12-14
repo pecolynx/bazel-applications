@@ -1,0 +1,18 @@
+services:
+  rabbitmq:
+    # -management を付与したイメージの場合、15672ポートでManagement Plugin(Web UIのようなもの)が利用できるようになる
+    # Management Pluginのドキュメント: https://www.rabbitmq.com/management.html
+    # イメージは現時点で最新のものを指定している
+    image: rabbitmq:4.0.4
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    # ユーザ名/パスワードの設定
+    # 特に設定しない場合、guest/guestが暗黙的に設定される
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+    # # データの永続化
+    # volumes:
+    #   - ./docker/rabbitmq/data:/var/lib/rabbitmq

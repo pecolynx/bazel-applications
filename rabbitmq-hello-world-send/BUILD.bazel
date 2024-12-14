@@ -1,0 +1,15 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "rabbitmq-hello-world-send_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/pecolynx/bazel-applications/rabbitmq-hello-world-send",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_rabbitmq_amqp091_go//:amqp091-go"],
+)
+
+go_binary(
+    name = "rabbitmq-hello-world-send",
+    embed = [":rabbitmq-hello-world-send_lib"],
+    visibility = ["//visibility:public"],
+)
